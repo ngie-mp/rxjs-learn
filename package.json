@@ -1,0 +1,20 @@
+{
+  "name": "rxjs-learn",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Angie <angeles.morap@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --mode development"
+  },
+  "dependencies": {
+    "rxjs": "^6.5.2",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.2",
+    "webpack": "^4.35.0",
+    "webpack-dev-server": "^3.7.2"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.5"
+  }
+}
