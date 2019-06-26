@@ -35,5 +35,6 @@ function addItem(val:any) {
     var node = document.createElement("li");
     var textnode = document.createTextNode(val);
     node.appendChild(textnode);
+    node.classList.add('list-group-item');
     document.getElementById("output").appendChild(node);
 }
