@@ -1,4 +1,5 @@
 import { Observable, Subscription } from 'rxjs';
+import { isNumber } from 'util';
 
 let subscription = Subscription;
 
@@ -7,7 +8,7 @@ var observable = Observable.create((observer: any) => {
         observer.next('hey guys!')
         observer.next('how are you?')
         setInterval(() => {
-            observer.next('Good !')
+            observer.next('im good!')
         }, 1000)
     } catch(err) {
         observer.error(err);
@@ -18,7 +19,13 @@ var observable = Observable.create((observer: any) => {
     (x:any) => addItem(x),
     (error: any) => addItem(error),
     () => addItem('Completed')
+);
+
+var observer2 = observable.subscribe(
+    (x:any) => addItem(x)
 ); 
+
+observer.add(observer2);
 
 setTimeout(() => {
     observer.unsubscribe();
