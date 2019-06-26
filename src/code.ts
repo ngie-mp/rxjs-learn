@@ -1,6 +1,5 @@
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
-import { interval } from 'rxjs/observable/interval';
 import 'rxjs/add/operator/skipUntil';
 
 var observable1 = Observable.create((data:any) => {
