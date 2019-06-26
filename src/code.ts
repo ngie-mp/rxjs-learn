@@ -1,5 +1,5 @@
 import { Observable, Subscription } from 'rxjs';
-import { isNumber } from 'util';
+import 'rxjs/add/operator/share';
 
 let subscription = Subscription;
 
@@ -13,7 +13,7 @@ var observable = Observable.create((observer: any) => {
     } catch(err) {
         observer.error(err);
     }
-});
+}).share();
 
  var observer = observable.subscribe(
     (x:any) => addItem(x),
@@ -21,15 +21,17 @@ var observable = Observable.create((observer: any) => {
     () => addItem('Completed')
 );
 
-var observer2 = observable.subscribe(
-    (x:any) => addItem(x)
-); 
+// var observer2 = observable.subscribe(
+//     (x:any) => addItem(x)
+// ); 
 
-observer.add(observer2);
+// observer.add(observer2);
 
 setTimeout(() => {
-    observer.unsubscribe();
-}, 6000);
+    var observer2 = observable.subscribe(
+        (x:any) => addItem('From subscriber 2'+x)
+    );
+}, 1000);
 
 function addItem(val:any) {
     var node = document.createElement("li");
